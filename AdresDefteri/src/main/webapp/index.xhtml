@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Adres Defteri</title>
+<script src="http://bxslider.com/lib/jquery.bxslider.js"></script>
+<link href="http://bxslider.com/lib/jquery.bxslider.css" rel="stylesheet" />
+<style type="text/css"> <!--
+body {
+        text-align: center;}
+#sayfa {
+        width: 925px;
+        margin: 0 auto;
+        height:700px;
+        text-align: left;       }
+#bannerAlan {
+        width: 925px;
+        height: 112px;
+        background-color:#ddff99;}
+#menuAlan {
+		width: 925px;
+        height: 49px;
+        background-color:#ddff99;}
+#icerik {      
+        width: 925px;
+        height: 720 px;
+        background-color:#ddff99;}
+#altAlan {
+        width: 925px;
+        clear: both;
+        height: 60px;
+        background-color:#ffad33;}
+--> </style>
+<link href="./css/StyleSheet.css" rel="StyleSheet" type="text/css" />
+
+</h:head> 
+<body>
+<f:view>
+<h:form>
+<div style="background:#b3b3ff">
+<div id="sayfa">
+	
+	<div id="menuAlan" >
+  <p:tabMenu activeIndex="#{param.i}">
+  	<p:menuitem value="Anasayfa" url="index.xhtml"  >
+        <f:param name="i" value="0" />
+    </p:menuitem>
+    
+    <p:menuitem value="Arama" url="arama.xhtml" >
+        <f:param name="i" value="1" />
+    </p:menuitem>
+    
+    <p:menuitem value="İletişim" url="iletisim.xhtml" >
+        <f:param name="i" value="2" />
+    </p:menuitem>
+	</p:tabMenu> 
+</div>
+<div id="icerik">
+			<center>
+			<p:panelGrid columns="3" >
+				Ad:<p:inputText value="#{kisiBean.kisi.ad}" 
+				validatorMessage="Geçersiz İsim" id="ad" >
+				<f:validateRegex pattern="[a-zA-Z]+"/></p:inputText>
+				<p:message for="ad" styleClass="hata"></p:message>
+				
+				Soyad:<p:inputText value="#{kisiBean.kisi.soyad}" 
+				validatorMessage="Geçersiz Soyad" id="soyad" >
+				<f:validateRegex pattern="[a-zA-Z]+"/></p:inputText>
+				<p:message for="soyad" styleClass="hata"></p:message>
+				
+				Adres:<p:inputText value="#{kisiBean.kisi.adres}" 
+				validatorMessage="Geçersiz Adres" id="adres" >
+				<f:validateLength minimum="2"/></p:inputText>
+				<p:message for="adres" styleClass="hata"></p:message>
+								
+				Telefon:<p:inputText  value="#{kisiBean.kisi.kisiTelefon.telefon}" 
+				validatorMessage="Geçersiz Telefon Numarası!" id="telefon" >
+				<f:validateLength minimum="10" maximum="11"></f:validateLength></p:inputText>
+				<p:message for="telefon" styleClass="hata"></p:message>
+								
+				E-mail:<p:inputText  value="#{kisiBean.kisi.email}" 
+				validatorMessage="Geçersiz E-Posta Adresi!" id="email" >
+				<f:validateRegex pattern="^[A-Za-z0-9-+]+(\.[A-Za-z0-9+-])*@[A-Za-z0-9-]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$"/></p:inputText>
+				<p:message for="email" styleClass="hata"></p:message>
+				
+				
+				
+				<p:commandButton action="#{kisiBean.kaydet()}" value="Kaydet" rendered="#{kisiBean.kisi.id==null}" ajax="false" />
+				<p:commandButton action="#{kisiBean.duzenle()}" value="Duzenle" rendered="#{kisiBean.kisi.id!=null}" ajax="false" />
+			</p:panelGrid>
+			</center>
+			<p:dataTable value="#{kisiBean.kisiListesi}" var="cls" >
+			<f:facet name="header"> Kisi Listesi</f:facet>
+			<p:column>
+				<f:facet name="header">Sec</f:facet>
+				<h:commandLink value="Sec" >
+					<f:setPropertyActionListener value="#{cls}" target="#{kisiBean.kisi}"/>
+					</h:commandLink>
+			</p:column>
+			<p:column>
+				<f:facet name="header">Sil</f:facet>
+				<h:commandLink action="#{kisiBean.sil()}" value="Sil" >
+					<f:setPropertyActionListener value="#{cls}" target="#{kisiBean.kisi}"/>
+					</h:commandLink>
+			</p:column>
+			<p:column>
+			<f:facet name="header">Ad</f:facet>
+			<h:outputText value="#{cls.ad}" />
+			</p:column>
+			<p:column>
+			<f:facet name="header">Soyad</f:facet>
+			<h:outputText value="#{cls.soyad}" />
+			</p:column>
+			<p:column>
+			<f:facet name="header">Adres</f:facet>
+			<h:outputText value="#{cls.adres}" />
+			</p:column>	
+			<p:column>
+			<f:facet name="header">Telefon</f:facet>
+			<h:outputText value="#{cls.kisiTelefon.telefon}" />
+			</p:column>					
+			<p:column>
+			<f:facet name="header">E-mail</f:facet>
+			<h:outputText value="#{cls.email}" />
+			</p:column>	
+			</p:dataTable>
+</div>
+<div id="altAlan">
+  <center>
+  <font size="2" face="verdana"><br /><b>     
+    AHMET FATİH ÇOBANER</b> 
+    </font>
+  <font size="1" face="verdana"><br />      
+    Copyright © 2017
+    </font>
+	</center>
+   </div>
+</div>
+<script type="text/javascript" src="http://www.webkodu.com/kod-kaynak/wk-yukariya-cik.js"></script>
+<script language="javascript" src="http://ic.sitekodlari.com/paylas8.js"></script>
+</div>
+</h:form>
+</f:view> 
+</body> 
+</html>

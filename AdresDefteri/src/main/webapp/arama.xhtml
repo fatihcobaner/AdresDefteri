@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+<title>Adres Defteri</title>
+
+<script src="http://bxslider.com/lib/jquery.bxslider.js"></script>
+<link href="http://bxslider.com/lib/jquery.bxslider.css" rel="stylesheet" />
+<style type="text/css"> <!--
+body {
+        text-align: center;}
+#sayfa {
+        width: 925px;
+        margin: 0 auto;
+        text-align: left;       }
+#menuAlan {
+		width: 925px;
+        height: 49px;
+        background-color:#ddff99;}
+#icerik {      
+        width: 925px;
+        height: 512px;
+        background-color:#ddff99;}
+#altAlan {
+        width: 925px;
+        clear: both;
+        height: 60px;
+        background-color:#ffad33;}
+--> </style>
+</h:head> 
+<body> 
+<h:form>
+<div style="background:#b3b3ff">
+<div id="sayfa">
+  
+  <div id="menuAlan" >
+  <p:tabMenu activeIndex="#{param.i}">
+  	<p:menuitem value="Anasayfa" url="index.xhtml"  >
+        <f:param name="i" value="0" />
+    </p:menuitem>
+    
+    <p:menuitem value="Arama" url="arama.xhtml" >
+        <f:param name="i" value="1" />
+    </p:menuitem>
+    
+    <p:menuitem value="İletişim" url="iletisim.xhtml" >
+        <f:param name="i" value="2" />
+    </p:menuitem>
+	</p:tabMenu> 
+</div>
+  
+    <div id="icerik">
+    <center>
+			<p:panelGrid columns="2">
+				Ad:<p:inputText value="#{kisiBean.kisi.ad}" onchange="submit()" />
+				
+			</p:panelGrid>
+			</center>
+    
+		<p:dataTable value="#{kisiBean.kisiAra}" var="cls" >
+			<f:facet name="header"> Kisi Listesi</f:facet>
+			
+			<p:column>
+			<f:facet name="header">Ad</f:facet>
+			<h:outputText value="#{cls[0].ad}" />
+			</p:column>
+			<p:column>
+			<f:facet name="header">Soyad</f:facet>
+			<h:outputText value="#{cls[0].soyad}" />
+			</p:column>
+			<p:column>
+			<f:facet name="header">Adres</f:facet>
+			<h:outputText value="#{cls[0].adres}" />
+			</p:column>
+			<p:column>
+			<f:facet name="header">Telefon</f:facet>
+			<h:outputText value="#{cls[1].telefon}" />
+			</p:column>
+			<p:column>
+			<f:facet name="header">E-mail</f:facet>
+			<h:outputText value="#{cls[0].email}" />
+			</p:column>
+			
+			</p:dataTable>
+		
+	</div>
+	
+  <div id="altAlan">
+  <center>
+  <font size="2" face="verdana"><br /><b>     
+    AHMET FATİH ÇOBANER</b> 
+    </font>
+  <font size="1" face="verdana"><br />      
+    Copyright © 2017
+    </font>
+	</center>
+   </div>
+
+</div>
+<script language="javascript" src="http://ic.sitekodlari.com/paylas8.js"></script>
+<script type="text/javascript" src="http://www.webkodu.com/kod-kaynak/wk-yukariya-cik.js"></script>
+</div>
+</h:form>
+</body> 
+</html>

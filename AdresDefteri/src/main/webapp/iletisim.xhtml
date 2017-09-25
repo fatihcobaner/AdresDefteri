@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+<title>Adres Defteri</title>
+
+<script src="http://bxslider.com/lib/jquery.bxslider.js"></script>
+<link href="http://bxslider.com/lib/jquery.bxslider.css" rel="stylesheet" />
+<style type="text/css"> <!--
+body {
+        text-align: center;}
+#sayfa {
+        width: 925px;
+        margin: 0 auto;
+        text-align: left;       }
+#bannerAlan {
+        width: 925px;
+        height: 112px;
+        background-color:#ddff99;}
+#menuAlan {
+		width: 925px;
+        height: 49px;
+        background-color:#ddff99;}
+#icerik {      
+        width: 925px;
+        height: 610px;
+        background-color:#ddff99;}
+#altAlan {
+        width: 925px;
+        clear: both;
+        height: 60px;
+        background-color:#ffad33;}
+--> </style>
+</h:head> 
+<body> 
+<h:form >
+<div style="background:#b3b3ff">
+<div id="sayfa">
+  
+  <div id="menuAlan" >
+  <p:tabMenu activeIndex="#{param.i}">
+  	<p:menuitem value="Anasayfa" url="index.xhtml"  >
+        <f:param name="i" value="0" />
+    </p:menuitem>
+    
+    <p:menuitem value="Arama" url="arama.xhtml" >
+        <f:param name="i" value="1" />
+    </p:menuitem>
+    
+    <p:menuitem value="İletişim" url="iletisim.xhtml" >
+        <f:param name="i" value="2" />
+    </p:menuitem>
+	</p:tabMenu> 
+</div>
+  
+    <div id="icerik">
+    
+        <font size="3" face="verdana"><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ahmet Fatih ÇOBANER 
+        <br></br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Telefon : 05536486706
+	<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mail : fatih06cobaner@gmail.com
+	<br /><br />
+    
+    </font>
+    <center>
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2132.292649698553!2d31.179068197447886!3d40.904404731329684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x409da0c35c97aa71%3A0x93cc0b0387c8fc40!2zRMO8emNlIMOcbnYuIE3DvGhlbmRpc2xpayBGYWvDvGx0ZXNp!5e0!3m2!1str!2str!4v1493286829057" width="600" height="450" frameborder="10" style="border:0" ></iframe>
+    <script language="javascript" src="http://ic.sitekodlari.com/havadurumu1.js"></script>
+    </center>
+   
+	</div>
+    
+  
+
+  <div id="altAlan">
+ <center>
+  <font size="2" face="verdana"><br /><b>     
+    AHMET FATİH ÇOBANER</b> 
+    </font>
+  <font size="1" face="verdana"><br />      
+    Copyright © 2017
+    </font>
+	</center>
+   </div>
+
+</div>
+
+<script type="text/javascript" src="http://www.webkodu.com/kod-kaynak/wk-yukariya-cik.js"></script>
+<script language="javascript" src="http://ic.sitekodlari.com/paylas8.js"></script>
+</div>
+
+</h:form>
+</body> 
+</html>
